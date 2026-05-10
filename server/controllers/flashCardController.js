@@ -24,10 +24,10 @@ export const getFlashcards = async (req, res, next) => {
 // @desc	Get all flashcard sets for a user
 // @route GET /api/flashcards
 // @access Private
-export const getAllFlashcardsSets = async (req, res, next) => {
+export const getAllFlashcardSets = async (req, res, next) => {
   try {
     const flashcardSets = await FlashCard.find({ userId: req.user._id })
-      .populate(" documentId", "title")
+      .populate("documentId", "title")
       .sort({ createdAt: -1 });
     res.status(200).json({
       success: true,
