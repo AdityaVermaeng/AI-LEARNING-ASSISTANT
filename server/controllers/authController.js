@@ -21,7 +21,7 @@ export const register = async (req, res, next) => {
 		//Check if user exists
 		const userExists=await User.findOne({$or:[{email}]});
 		if(userExists){
-			return res.Status(400).json({success:false,
+			return res.status(400).json({success:false,
 				error:
 				userExists.email===email
 				? "Email alraedy registered"
